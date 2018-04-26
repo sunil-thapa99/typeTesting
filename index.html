@@ -2,8 +2,32 @@
 <html>
 	<head>
 		<title>Type Test</title>
+		<link rel="shortcut icon" href="assets/image/typing-tutors.jpg" />
+		<link rel="stylesheet" type="text/css" href="assets/style.css">
 	</head>
 	<body>
-
+		<main>
+			<div id="header">
+				Typing Test
+			</div>
+			<div class="content">
+				<p><span>❝ </span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<span>❞</span></p>
+			</div>
+			<div class="text-field">
+				<textarea cols="100" rows="10" id="txt-area" disabled="" oninput="text();"></textarea>
+				<h4 id="typed"></h4>
+			</div>
+			<footer>
+				<div id="timer">
+					<p>Timer: <span id="timer-counter">00:00:00</span></p>
+				</div>
+				<div id="start">
+					<button onclick="start();" id="starter">Start</button>
+				</div>
+				<hr>
+				<p style="font-size: 20px; font-weight: bold;">Copyright 2018 &copy</p>
+			</footer>
+		</main>
 	</body>
+	<script type="text/javascript" src="assets/main.js"></script>
 </html>
