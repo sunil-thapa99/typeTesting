@@ -12,7 +12,6 @@ function start(){
 		button.innerHTML = "Reset";
 		// Start timer and enable text field to enter type letters
 		time = setInterval(timer ,1000);
-		testArea.disabled = false;
 	}
 	else{
 		// Clear interval if button is reset
@@ -22,7 +21,6 @@ function start(){
 		hours = 00;	
 		clearInterval(time);
 		button.innerHTML = "Start";
-		testArea.disabled = true;
 	}
 }
 function leadingTimer(time){
@@ -50,7 +48,7 @@ function timer(){
 	text_area.innerHTML = leadingTimer(hours) + ":" + leadingTimer(minutes) + ":" + leadingTimer(second);
 }
 function text(){
-	let input = testArea.value;
+	let input = testArea.innerHTML;
 	// Get each character of original text
 	let originalText = original.substring(0, input.length);
 	if (input == original) {
