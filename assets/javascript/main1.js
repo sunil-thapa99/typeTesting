@@ -3,7 +3,6 @@ var minutes = 00;
 var hours = 00;
 var counter=0;
 var time;
-// var textTimer;
 const testArea = document.getElementById('txt-area');
 const original = document.getElementById('originalText').innerHTML;
 function start(){
@@ -13,6 +12,7 @@ function start(){
 		button.innerHTML = "Reset";
 		// Start timer and enable text field to enter type letters
 		time = setInterval(timer ,1000);
+		testArea.disabled = false;
 	}
 	else{
 		// Clear interval if button is reset
@@ -22,6 +22,7 @@ function start(){
 		hours = 00;	
 		clearInterval(time);
 		button.innerHTML = "Start";
+		testArea.disabled = true;
 	}
 }
 function leadingTimer(time){
@@ -49,7 +50,7 @@ function timer(){
 	text_area.innerHTML = leadingTimer(hours) + ":" + leadingTimer(minutes) + ":" + leadingTimer(second);
 }
 function text(){
-	let input = testArea.innerHTML;
+	let input = testArea.value;
 	// Get each character of original text
 	let originalText = original.substring(0, input.length);
 	if (input == original) {
@@ -58,28 +59,16 @@ function text(){
 		alert('You took ' + leadingTimer(hours) + ":" + leadingTimer(minutes) + ":" + leadingTimer(second));
 	}
 	else{
-
-		for (var i = 0; i < input.length; i++) {
-			if (input[i] != originalText[i]) {
-				// console.log(input[i]);
-				var a = '<span class="red">'+input[i]+'</span>';
-				// a.className += 'red'; //style.color = "#DA413D";
-				console.log(a);
-				// testArea.style.borderColor = "#DA413D";	
-			}
-			else{
-				testArea.style.borderColor = "#67E1D4";
-			}
+		if (input == originalText) {
+			// Change border color to green when letters match 
+			testArea.style.borderColor = "#67E1D4";
 		}
-
-		// if (input == originalText) {
-		// 	// Change border color to green when letters match 
-		// 	testArea.style.borderColor = "#67E1D4";
-		// }
-		// else{
-		// 	// Change border color to red when letters donot match
-		// 	testArea.style.borderColor = "#DA413D";
-		// }
+		else{
+			// Change border color to red when letters donot match
+			testArea.style.borderColor = "#DA413D";
+		}
 	}
 }
+// Call function on each key is released
 testArea.addEventListener("keyup", text, false);
+// document.addEventListener('DOMContentLoaded', start);
